@@ -35,10 +35,11 @@ int _printf(const char *format, ...)
 					i++;
 					putchar(*s++);
 				} i--;
-			} else if (*format == 0)
+			}
+			else if (*format == 0)
 				return (-1);
 
-				putchar(*--format);
+			putchar(*--format);
 			format++;
 			i++;
 			continue;
