@@ -1,7 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "main.h"
-#include "unistd.h"
 /**
  * _printf - Produces output according to a format.
  *
@@ -21,30 +20,31 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{	format++;
-			if (*format == '%')
-				putchar(*format);
+			if (*format == 0)
+				return (-1);
+			else if (*format == '%')
+				_putchar(*format);
 			else if (*format == 'c')
 			{
 				c = va_arg(p, int);
-				putchar(c);
+				_putchar(c);
 			} else if (*format == 's')
 			{
 				s = va_arg(p, char *);
 				while (*s != '\0')
 				{
 					i++;
-					putchar(*s++);
+					_putchar(*s++);
 				} i--;
+					return (-1);
 			}
-			else if (*format == 0)
-				return (-1);
-
-			putchar(*--format);
+			else
+				_putchar(*--format);
 			format++;
 			i++;
 			continue;
 		}
-		putchar(*format++);
+		_putchar(*format++);
 		i++;
 }
 		return (i);
