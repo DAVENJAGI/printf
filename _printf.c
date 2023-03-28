@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int i = 0;
 	char c, *s;
 	va_list p;
+
 	if (format == 0)
 		return (-1);
 	va_start(p, format);
@@ -36,7 +37,7 @@ int _printf(const char *format, ...)
 				} i--;
 			} else if (*format == 0)
 				return (-1);
-			else
+
 				putchar(*--format);
 			format++;
 			i++;
