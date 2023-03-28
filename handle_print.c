@@ -1,3 +1,5 @@
+#include <unistd.h>
+#include <stdlib.h>
 #include "main.h"
 /**
  * handle_print - Prints an argument based on its type
