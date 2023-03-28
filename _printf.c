@@ -1,6 +1,8 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "main.h"
+#include <unistd.h>
+
 /**
  * _printf - Produces output according to a format.
  *
@@ -27,24 +29,24 @@ int _printf(const char *format, ...)
 			else if (*format == 'c')
 			{
 				c = va_arg(p, int);
-				_putchar(c);
+				putchar(c);
 			} else if (*format == 's')
 			{
 				s = va_arg(p, char *);
 				while (*s != '\0')
 				{
 					i++;
-					_putchar(*s++);
+					putchar(*s++);
 				} i--;
 					return (-1);
 			}
 			else
-				_putchar(*--format);
+				putchar(*--format);
 			format++;
 			i++;
 			continue;
 		}
-		_putchar(*format++);
+		putchar(*format++);
 		i++;
 }
 		return (i);
